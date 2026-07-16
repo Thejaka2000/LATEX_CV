@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% commands.tex
+%% Resume Commands
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Personal Information
+\newcommand{\ResumeName}{}
+\newcommand{\ResumeTitle}{}
+\newcommand{\ResumePhone}{}
+\newcommand{\ResumeEmail}{}
+\newcommand{\ResumeLinkedIn}{}
+\newcommand{\ResumeLocation}{}
+
+%% Set Personal Information
+\newcommand{\setname}[1]{\renewcommand{\ResumeName}{#1}}
+\newcommand{\settitle}[1]{\renewcommand{\ResumeTitle}{#1}}
+\newcommand{\setphone}[1]{\renewcommand{\ResumePhone}{#1}}
+\newcommand{\setemail}[1]{\renewcommand{\ResumeEmail}{#1}}
+\newcommand{\setlinkedin}[1]{\renewcommand{\ResumeLinkedIn}{#1}}
+\newcommand{\setlocation}[1]{\renewcommand{\ResumeLocation}{#1}}
+
+
+%% Resume Header
+\newcommand{\ResumeHeader}{%
+  \makecvheader
+    {\ResumeName}
+    {\ResumeTitle}
+    {\ResumePhone}
+    {\ResumeEmail}
+    {\ResumeLinkedIn}
+    {\ResumeLocation}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Resume Start / End
+%% \beginresume / \endresume were referenced but never defined anywhere in
+%% the project, which is why \ResumeStart threw "Undefined control sequence."
+%% These now open/close resume.cls's `cvcolumns` environment directly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ResumeStart}{%
+  \begin{cvcolumns}
+  \cvleftcolumn
+}
+
+\newcommand{\ResumeEnd}{%
+  \end{cvcolumns}
+  \resumeend
+}
+
+
+%% Summary
+\newcommand{\Summary}[1]{%
+  \cvsection{Summary}
+  {\BodyFont #1\par}%
+}
+
+%% Section Headings
+\newcommand{\ExperienceSection}{\cvsection{Experience}}
+\newcommand{\EducationSection}{\cvsection{Education}}
+\newcommand{\ProjectsSection}{\cvsection{Projects}}
+\newcommand{\SkillsSection}{\sidebarsection{Skills}}
+\newcommand{\LanguagesSection}{\sidebarsection{Languages}}
+\newcommand{\InterestsSection}{\sidebarsection{Interests}}
+\newcommand{\AchievementsSection}{\sidebarsection{Key Achievements}}
+\newcommand{\PublicationsSection}{\cvsection{Publications}}
+
+
+%% Experience Entry
+% #1 Job Title  #2 Company  #3 Date  #4 Location  #5 \item bullet points
+\newcommand{\Experience}[5]{%
+  \experienceentry
+    {#1}
+    {#2}
+    {#3}
+    {#4}
+    {\begin{resumelist}#5\end{resumelist}}
+}
+
+%% Education Entry
+% #1 Degree  #2 University  #3 Year  #4 Location
+\newcommand{\Education}[4]{%
+  \educationentry{#1}{#2}{#3}{#4}
+}
+
+
+%% Project Entry
+% #1 Project  #2 Organization  #3 Date  #4 Description
+\newcommand{\Project}[4]{%
+  \projectentry{#1}{#2}{#3}{#4}
+}
+
+
+%% Sidebar Items
+\newcommand{\Skill}[1]{\skill{#1}}
+\newcommand{\Language}[2]{\cvlanguage{#1}{#2}}
+\newcommand{\Interest}[1]{\interest{#1}}
+
+
+%% Achievement / Publication
+\newcommand{\Achievement}[2]{\achievementitem{#1}{#2}}
+\newcommand{\Publication}[4]{\publication{#1}{#2}{#3}{#4}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Two Column Helpers
+%% Delegate to resume.cls's own \cvleftcolumn/\cvrightcolumn instead of
+%% calling \switchcolumn directly here. The `paracol` package reserves the
+%% literal names \leftcolumn/\rightcolumn/\switchcolumn for its own internal
+%% (and mutually-poisoning) shorthand -- resume.cls already works around
+%% that once, so this file just reuses that fix rather than duplicating it.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\LeftColumn}{\cvleftcolumn}
+\newcommand{\RightColumn}{\cvrightcolumn}
+
+
+%% Lists
+\newenvironment{SkillList}{\begin{sidebarblock}}{\end{sidebarblock}}
+\newenvironment{LanguageList}{\begin{sidebarblock}}{\end{sidebarblock}}
+\newenvironment{InterestList}{\begin{sidebarblock}}{\end{sidebarblock}}
+
+%% Contact Icons
+\newcommand{\PhoneIcon}{\faPhone}
+\newcommand{\MailIcon}{\faEnvelope}
+\newcommand{\LinkedInIcon}{\faLinkedin}
+\newcommand{\LocationIcon}{\faMapMarker*}
+
+

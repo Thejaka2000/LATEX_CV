@@ -1,0 +1,63 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% colors.tex
+%% Resume Color Palette
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Primary Colors
+\definecolor{ResumeBlue}{HTML}{2E74B5}
+\definecolor{ResumeDarkBlue}{HTML}{1F5C99}
+
+%% Text Colors
+\definecolor{ResumeBlack}{HTML}{222222}
+\definecolor{ResumeGray}{HTML}{666666}
+\definecolor{ResumeLightGray}{HTML}{A7A7A7}
+
+%% Divider Colors
+\definecolor{ResumeRule}{HTML}{202020}
+\definecolor{ResumeDivider}{HTML}{DDDDDD}
+
+%% Background
+\definecolor{ResumeBackground}{HTML}{FFFFFF}
+
+%% Accent Colors
+\definecolor{ResumeAccent}{HTML}{0D6EFD}
+\definecolor{ResumeSuccess}{HTML}{198754}
+\definecolor{ResumeWarning}{HTML}{FFC107}
+
+%% Hyperlink Colors
+\colorlet{linkcolor}{ResumeBlue}
+\colorlet{urlcolor}{ResumeBlue}
+\colorlet{citecolor}{ResumeBlue}
+
+%% Default Text
+\color{ResumeBlack}
+
+%% Horizontal Rule Command
+\newcommand{\ResumeHorizontalRule}{
+    \color{ResumeRule}
+    \rule{\linewidth}{0.45pt}
+}
+
+%% Thin Divider
+\newcommand{\ResumeDivider}{
+    \color{ResumeDivider}
+    \rule{\linewidth}{0.25pt}
+}
+
+%% Blue Text
+\newcommand{\Blue}[1]{
+    {\color{ResumeBlue}#1}
+}
+
+%% Gray Text
+\newcommand{\Gray}[1]{
+    {\color{ResumeGray}#1}
+}
+
+%% Light Gray Text
+\newcommand{\LightGray}[1]{
+    {\color{ResumeLightGray}#1}
+}
+
